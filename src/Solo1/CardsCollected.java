@@ -9,8 +9,6 @@ package Solo1;
  *
  * @author Jeremiah MacDougall, Sheridan College Davis Campus
  */
-public class PlayerInfo {
-    int overallScore;
-    int roundScore;
+public class CardsCollected {
     
 }

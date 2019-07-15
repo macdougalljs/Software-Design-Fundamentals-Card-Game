@@ -7,15 +7,15 @@ package Solo1;
 
 /**
  *
- * @author Team Raptors
+ * @author Jeremiah MacDougall
  */
 public class GamePlay {
     public static void main(String[]args) 
     {
-    CardHand ch = new CardHand();
+    Deck ch = new Deck();
     ch.generate(); //calls method to generate 60 cards
     // print 60 cards
-    for (CardGame c :ch.deck) // ch.deck is the first data, stored into c
+    for (Cards c :ch.deck) // ch.deck is the first data, stored into c
     {
         System.out.println(c.getS()+ " "+ c.getV());
     }

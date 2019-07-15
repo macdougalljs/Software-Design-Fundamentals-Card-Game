@@ -7,9 +7,9 @@ package Solo1;
 
 /**
  *
- * @author Team Raptors
+ * @author Jeremiah MacDougall
  */
-public class CardGame {
+public class Cards {
     // enum
 public enum Suit {HEARTS, DIAMONDS, SPADES, CLUBS};
     private Suit s; //encapsulation principle applied
@@ -20,7 +20,7 @@ public enum Suit {HEARTS, DIAMONDS, SPADES, CLUBS};
     private Value v; 
     // constructor
     
-    public CardGame(Suit s, Value v)
+    public Cards(Suit s, Value v)
     {
         this.s=s;
         this.v=v;

@@ -7,15 +7,10 @@ package Solo1;
 
 /**
  *
- * @author Jeremiah MacDougall, Sheridan College Davis Campus
+ * @author Jeremiah MacDougall
  */
-public class Card extends CardGame {
-    
-    public Card (Suit s, Value v) 
-    { 
-    super(s, v);
-    }
-    
-    
+public class Player {
+    int overallScore;
+    int roundScore;
     
 }

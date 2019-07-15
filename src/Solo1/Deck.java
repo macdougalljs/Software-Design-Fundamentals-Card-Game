@@ -7,19 +7,19 @@ package Solo1;
 
 /**
  *
- * @author Team Raptors
+ * @author Jeremiah MacDougall
  */
-public class CardHand {
+public class Deck {
     private int size=60;
-    public CardGame [] deck = new CardGame[size]; // Array of object created
+    public Cards [] deck = new Cards[size]; // Array of object created
     public void generate() 
     {
         int counter = 0;
-        for (CardGame.Suit s :CardGame.Suit.values() ) 
+        for (Cards.Suit s :Cards.Suit.values() ) 
         {
-            for (CardGame.Value v :CardGame.Value.values() ) 
+            for (Cards.Value v :Cards.Value.values() ) 
             {
-                CardGame c1 = new CardGame(s,v);
+                Cards c1 = new Cards(s,v);
                 deck[counter] = c1;
                 
                 // or,   deck[counter] = new Cardgame(s,v);
