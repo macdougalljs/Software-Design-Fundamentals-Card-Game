@@ -24,7 +24,7 @@ public class GamePlay {
     List<Deck> list = Arrays.asList(origch);
     Collections.shuffle(list);
     Object[] ch = list.toArray();
-    
+    char keepPlaying; 
     System.out.println("WAR GAME");
     System.out.println("Welcome to the War Game! Let's take the players names.");
     
@@ -35,8 +35,16 @@ public class GamePlay {
     
     System.out.print("Enter Player 2: ");
     Player player2 = new Player(inputObj.next());
+           
+    // this is the primary game loop; the game will run until the user quits
     
+    do {
     
+        System.out.print("Play another round? (Y/N): ");
+        
+       keepPlaying = inputObj.next().toUpperCase().charAt(0);
+       
+    } while (keepPlaying == 'Y');
     
     // print 60 cards
     /* this is the original code to display the cards sequentally. 
