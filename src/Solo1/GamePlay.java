@@ -40,9 +40,16 @@ public class GamePlay {
     
     do {
     
-        System.out.print("Play another round? (Y/N): ");
+        // enter main game code here
         
-       keepPlaying = inputObj.next().toUpperCase().charAt(0);
+        /* per brain storming session,  consider implementing a unique ID for each
+        game card and /or a present "owner" so that they are referenced and
+        duplicate code and data storage isn't required.
+        
+        */
+        
+        System.out.print("Play another round? (Y/N): ");
+        keepPlaying = inputObj.next().toUpperCase().charAt(0);
        
     } while (keepPlaying == 'Y');
     
