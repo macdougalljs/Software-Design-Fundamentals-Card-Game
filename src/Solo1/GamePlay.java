@@ -8,6 +8,7 @@ package Solo1;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.Scanner;
 
 /**
  *
@@ -16,12 +17,25 @@ import java.util.List;
 public class GamePlay {
     public static void main(String[]args) 
     {
+    Scanner inputObj = new Scanner(System.in);
     Deck origch = new Deck();
     origch.generate(); //calls method to generate 60 cards
     
     List<Deck> list = Arrays.asList(origch);
     Collections.shuffle(list);
     Object[] ch = list.toArray();
+    
+    System.out.println("WAR GAME");
+    System.out.println("Welcome to the War Game! Let's take the players names.");
+    
+    // take the players names, and initialize the new player objects
+    
+    System.out.print("Enter Player 1: ");
+    Player player1 = new Player(inputObj.next());
+    
+    System.out.print("Enter Player 2: ");
+    Player player2 = new Player(inputObj.next());
+    
     
     
     // print 60 cards
