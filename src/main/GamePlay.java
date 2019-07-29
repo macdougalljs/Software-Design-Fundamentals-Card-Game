@@ -3,27 +3,62 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Solo1;
+package main;
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.util.Random;
 import java.util.Scanner;
+
 
 /**
  *
  * @author Jeremiah MacDougall
  */
 public class GamePlay {
+    
+    public static Cards[] RandomizedArray(Cards[] array){
+	Random rgen = new Random();  // Random number generator			
+ 
+	for (int i=0; i<array.length; i++) {
+            int randomPosition = rgen.nextInt(array.length);
+	    Cards temp = array[i];
+	    array[i] = array[randomPosition];
+	    array[randomPosition] = temp;
+	}
+ 
+	return array;
+}
+    
     public static void main(String[]args) 
     {
     Scanner inputObj = new Scanner(System.in);
-    Deck origch = new Deck();
-    origch.generate(); //calls method to generate 60 cards
+  
+    Deck ch = new Deck();
+    ch.generate(); //calls method to generate 60 cards
     
-    List<Deck> list = Arrays.asList(origch);
-    Collections.shuffle(list);
-    Object[] ch = list.toArray();
+    RandomizedArray(ch.deck);
+    
+    Cards[] deck1 = new Cards[30];
+    Cards[] deck2 = new Cards[30];
+    
+            
+   // split the array into 2 decks for each player 
+    for (int x=0; x < ch.deck.length/2; x++) {
+        // ch.deck[x].getS()
+        // ch.deck[x].getV()
+        deck1[x].setV(ch.deck[x].getV());
+        deck1[x].setS(ch.deck[x].getS());
+       
+    }
+    // Deck2
+    
+    for (int x=ch.deck.length/2; x < ch.deck.length; x++) {
+        // ch.deck[x].getS()
+        // ch.deck[x].getV()
+        deck2[x].setV(ch.deck[x].getV());
+        deck2[x].setS(ch.deck[x].getS());
+    }
+    
+    
     char keepPlaying; 
     System.out.println("WAR GAME");
     System.out.println("Welcome to the War Game! Let's take the players names.");

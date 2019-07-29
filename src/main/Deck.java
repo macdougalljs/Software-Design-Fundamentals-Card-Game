@@ -3,7 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Solo1;
+package main;
+
+import java.util.Random;
 
 /**
  *
@@ -12,6 +14,8 @@ package Solo1;
 public class Deck {
     private int size=60;
     public Cards [] deck = new Cards[size]; // Array of object created
+    
+      
     public void generate() 
     {
         int counter = 0;

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Solo1;
+package main;
 
 /**
  *
@@ -19,6 +19,11 @@ public enum Suit {HEARTS, DIAMONDS, SPADES, CLUBS};
     
     private Value v; 
     // constructor
+    
+    public Cards() {
+       this.s= Suit.CLUBS;
+       this.v= Value.ACE;        
+    }
     
     public Cards(Suit s, Value v)
     {
