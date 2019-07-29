@@ -78,6 +78,9 @@ public class GamePlay {
 
         do {
         // this is where we'll do the comparisons and move the cards around
+       
+        
+        keepPlaying = inputObj.next().toUpperCase().charAt(0);
         } while (!deck1.isEmpty() && !deck2.isEmpty());        
         
         System.out.print("Play another round? (Y/N): ");
