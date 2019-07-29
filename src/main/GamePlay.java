@@ -36,7 +36,6 @@ public class GamePlay {
     Deck ch = new Deck();
     ch.generate(); //calls method to generate 60 cards
     
-    RandomizedArray(ch.deck);
     
     ArrayList<Cards> deck1 = new ArrayList<>();
     ArrayList<Cards> deck2 = new ArrayList<>();
@@ -45,9 +44,8 @@ public class GamePlay {
     ArrayList<Cards> playerCollected2 = new ArrayList<>();
     
     
-            
-    
-           
+          
+         
    
     
     char keepPlaying; 
@@ -68,11 +66,19 @@ public class GamePlay {
     
         // enter main game code here
         
-        /* per brain storming session,  consider implementing a unique ID for each
-        game card and /or a present "owner" so that they are referenced and
-        duplicate code and data storage isn't required.
-        
-        */
+        RandomizedArray(ch.deck);
+    
+        for (int x=0; x<ch.deck.length; x++){
+          deck1.add(ch.deck[x]);  
+        }
+  
+        for (int x=30; x<60; x++) {
+          deck2.add(ch.deck[x]);    
+        }
+
+        do {
+        // this is where we'll do the comparisons and move the cards around
+        } while (!deck1.isEmpty() && !deck2.isEmpty());        
         
         System.out.print("Play another round? (Y/N): ");
         keepPlaying = inputObj.next().toUpperCase().charAt(0);
