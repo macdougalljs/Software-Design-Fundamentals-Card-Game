@@ -5,6 +5,7 @@
  */
 package main;
 
+import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -37,27 +38,17 @@ public class GamePlay {
     
     RandomizedArray(ch.deck);
     
-    Cards[] deck1 = new Cards[30];
-    Cards[] deck2 = new Cards[30];
+    ArrayList<Cards> deck1 = new ArrayList<>();
+    ArrayList<Cards> deck2 = new ArrayList<>();
+    
+    ArrayList<Cards> playerCollected1 = new ArrayList<>();
+    ArrayList<Cards> playerCollected2 = new ArrayList<>();
+    
     
             
-   // split the array into 2 decks for each player 
-    for (int x=0; x < ch.deck.length/2; x++) {
-        // ch.deck[x].getS()
-        // ch.deck[x].getV()
-        deck1[x].setV(ch.deck[x].getV());
-        deck1[x].setS(ch.deck[x].getS());
-       
-    }
-    // Deck2
     
-    for (int x=ch.deck.length/2; x < ch.deck.length; x++) {
-        // ch.deck[x].getS()
-        // ch.deck[x].getV()
-        deck2[x].setV(ch.deck[x].getV());
-        deck2[x].setS(ch.deck[x].getS());
-    }
-    
+           
+   
     
     char keepPlaying; 
     System.out.println("WAR GAME");
