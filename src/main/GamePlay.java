@@ -79,8 +79,17 @@ public class GamePlay {
         do {
         // this is where we'll do the comparisons and move the cards around
        
+        // pull cards from player 1 and 2
+        // compare them
+        // who's is greater? they both get moved to that players collection
+        // are they equal?  then
         
-        keepPlaying = inputObj.next().toUpperCase().charAt(0);
+        // ----------  START ANOTHER LOOP 
+        // and draw two more cards from each, but don't 
+        // show them;  draw a 3rd card from each and show them
+        // the higher player takes all the cards, if they're the same
+        // LOOP THIS AGAIN! ----^
+        
         } while (!deck1.isEmpty() && !deck2.isEmpty());        
         
         System.out.print("Play another round? (Y/N): ");
