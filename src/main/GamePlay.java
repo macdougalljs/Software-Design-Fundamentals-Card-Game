@@ -34,7 +34,8 @@ public class GamePlay {
   
     Deck ch = new Deck();
     ch.generate(); //calls method to generate 60 cards
- 
+    Cards player1Card;
+    Cards player2Card;
     char keepPlaying; 
     System.out.println("WAR GAME");
     System.out.println("Welcome to the War Game! Let's take the players names.");
@@ -56,19 +57,28 @@ public class GamePlay {
         RandomizedArray(ch.deck);  // randomize the card deck
     
         // assign the first half of the deck to player 1
-        for (int x=0; x<ch.deck.length; x++){
+        for (int x=0; x<ch.deck.length/2; x++){
           player1.playerDeck.add(ch.deck[x]);  
         }
   
         // assign the second half of the deck to player 2
-        for (int x=30; x<60; x++) {
+        for (int x=ch.deck.length/2+1; x<ch.deck.length; x++) {
           player2.playerDeck.add(ch.deck[x]);    
         }
 
+       
+        
         do {
         // this is where we'll do the comparisons and move the cards around
-       
         // pull cards from player 1 and 2
+        player1Card = player1.playerDeck.remove(player1.playerDeck.size()-1);
+        player2Card = player2.playerDeck.remove(player2.playerDeck.size()-1);
+
+        System.out.println("Player 1 plays card: " + player1Card.toString());
+        System.out.println("Player 2 plays card: " + player2Card.toString());
+        System.out.print("Press enter to continue: ");
+        String input = inputObj.next();
+                
         // compare them
         // who's is greater? they both get moved to that players collection
         // are they equal?  then
