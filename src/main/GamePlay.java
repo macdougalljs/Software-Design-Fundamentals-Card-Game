@@ -5,7 +5,6 @@
  */
 package main;
 
-import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -14,7 +13,7 @@ import java.util.Scanner;
  *
  * @author Jeremiah MacDougall
  */
-public class GamePlay {
+public class GamePlay {  // consider moving this into an object
     
     public static Cards[] RandomizedArray(Cards[] array){
 	Random rgen = new Random();  // Random number generator			
@@ -54,16 +53,16 @@ public class GamePlay {
     
         // enter main game code here
         
-        RandomizedArray(ch.deck);  // randomize the card deck
+        RandomizedArray(ch.getDeck());  // randomize the card deck
     
         // assign the first half of the deck to player 1
-        for (int x=0; x<ch.deck.length/2; x++){
-          player1.playerDeck.add(ch.deck[x]);  
+        for (int x=0; x<ch.getDeck().length/2; x++){
+          player1.playerDeck.add(ch.getDeck()[x]);  
         }
   
         // assign the second half of the deck to player 2
-        for (int x=ch.deck.length/2+1; x<ch.deck.length; x++) {
-          player2.playerDeck.add(ch.deck[x]);    
+        for (int x=ch.getDeck().length/2+1; x<ch.getDeck().length; x++) {
+          player2.playerDeck.add(ch.getDeck()[x]);    
         }
 
        
@@ -71,14 +70,29 @@ public class GamePlay {
         do {
         // this is where we'll do the comparisons and move the cards around
         // pull cards from player 1 and 2
+        System.out.println("check1");
         player1Card = player1.playerDeck.remove(player1.playerDeck.size()-1);
         player2Card = player2.playerDeck.remove(player2.playerDeck.size()-1);
-
-        System.out.println("Player 1 plays card: " + player1Card.toString());
-        System.out.println("Player 2 plays card: " + player2Card.toString());
-        System.out.print("Press enter to continue: ");
-        String input = inputObj.next();
-                
+System.out.println("check2");
+        System.out.println(player1.getPlayerName()+" plays card: " + player1Card.toString());
+        System.out.println(player2.getPlayerName()+" plays card: " + player2Card.toString());
+        
+        
+        if (player1Card.convertToInt() > player2Card.convertToInt()) 
+        {
+            player1.playerWinnings.add(player2Card);
+            player1.playerWinnings.add(player1Card);
+            System.out.println(player1.getPlayerName()+" takes this round!");
+        }
+        else if (player1Card.convertToInt() < player2Card.convertToInt()) 
+        {
+            player2.playerWinnings.add(player1Card);
+            player2.playerWinnings.add(player1Card);
+            System.out.println(player2.getPlayerName()+" takes this round!");
+        }
+        else {
+        System.out.println("TIME FOR WAR!!");
+        }  //  it's a tie!  TIME FOR WAR!!!
         // compare them
         // who's is greater? they both get moved to that players collection
         // are they equal?  then
@@ -89,8 +103,15 @@ public class GamePlay {
         // the higher player takes all the cards, if they're the same
         // LOOP THIS AGAIN! ----^
         
-        } while (!player1.playerDeck.isEmpty() && !player2.playerDeck.isEmpty());        
+        System.out.println(player1.getPlayerName()+" winnings so far: "+player1.playerWinnings.size()+" Remaining Cards: "+player1.playerDeck.size());
+        System.out.println(player2.getPlayerName()+" winnings so far: "+player2.playerWinnings.size()+" Remaining Cards: "+player2.playerDeck.size());
         
+        System.out.print("Type 'Y' and press enter to continue. ");
+        String input = inputObj.next(); 
+        
+        } while (player1.playerDeck.size() > 0 && player2.playerDeck.size() > 0);        
+       // String winner = player1.playerWinnings.size() > player1.playerWinnings.size() ? winner = player1.getPlayerName() : winner = player2.getPlayerName();
+       
         System.out.print("Play another round? (Y/N): ");
         keepPlaying = inputObj.next().toUpperCase().charAt(0);
        

@@ -62,7 +62,7 @@ public enum Suit {HEARTS, DIAMONDS, SPADES, CLUBS};
    
     
     public int convertToInt() {
-        int temp;
+        int temp = 0;
         
         switch(this.getV()) {
          case ONE : temp = 1; 
@@ -98,7 +98,7 @@ public enum Suit {HEARTS, DIAMONDS, SPADES, CLUBS};
              
      }
         
-     return 0;
+     return temp;
     }
     
      @Override
@@ -111,38 +111,37 @@ public enum Suit {HEARTS, DIAMONDS, SPADES, CLUBS};
     public enum Value{ONE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN, KING, QUEEN, JACK, PRINCESS, ACE};
     */
      
-     switch(this.getV()) {
-         case ONE : buildString.append("One");
+     switch(convertToInt()) {
+         case 1 : buildString.append("One");
              break;
-         case TWO : buildString.append("Two");
+         case 2 : buildString.append("Two");
              break;
-         case THREE : buildString.append("Three");
+         case 3 : buildString.append("Three");
              break;
-         case FOUR : buildString.append("Four");
+         case 4 : buildString.append("Four");
              break;
-         case FIVE : buildString.append("Five");
+         case 5 : buildString.append("Five");
              break;
-         case SIX : buildString.append("Six");
+         case 6 : buildString.append("Six");
              break;
-         case SEVEN : buildString.append("Seven");
+         case 7 : buildString.append("Seven");
              break;
-         case EIGHT : buildString.append("Eight");
+         case 8 : buildString.append("Eight");
              break;
-         case NINE : buildString.append("Nine");
+         case 9 : buildString.append("Nine");
              break;
-         case TEN : buildString.append("Ten");
+         case 10 : buildString.append("Ten");
              break;
-         case KING : buildString.append("King");
+         case 14 : buildString.append("King");
              break;
-         case QUEEN : buildString.append("Queen");
+         case 13 : buildString.append("Queen");
              break;
-         case JACK : buildString.append("Jack");
+         case 11 : buildString.append("Jack");
              break;
-         case PRINCESS : buildString.append("Princess");
+         case 12 : buildString.append("Princess");
              break;
-         case ACE : buildString.append("Ace");
-             break;
-             
+         case 15 : buildString.append("Ace");
+             break;            
      }
      
      buildString.append(" of ");

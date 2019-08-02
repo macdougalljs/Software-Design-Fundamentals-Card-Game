@@ -5,15 +5,13 @@
  */
 package main;
 
-import java.util.Random;
-
 /**
  *
  * @author Jeremiah MacDougall
  */
 public class Deck {
     private int size=60;
-    public Cards [] deck = new Cards[size]; // Array of object created
+    private Cards [] deck = new Cards[size]; // Array of object created
     
       
     public void generate() 
@@ -24,12 +22,40 @@ public class Deck {
             for (Cards.Value v :Cards.Value.values() ) 
             {
                 Cards c1 = new Cards(s,v);
-                deck[counter] = c1;
+                getDeck()[counter] = c1;
                 
                 // or,   deck[counter] = new Cardgame(s,v);
                 counter++;
             }
         }
+    }
+
+    /**
+     * @return the size
+     */
+    public int getSize() {
+        return size;
+    }
+
+    /**
+     * @param size the size to set
+     */
+    public void setSize(int size) {
+        this.size = size;
+    }
+
+    /**
+     * @return the deck
+     */
+    public Cards[] getDeck() {
+        return deck;
+    }
+
+    /**
+     * @param deck the deck to set
+     */
+    public void setDeck(Cards[] deck) {
+        this.deck = deck;
     }
     
 }
