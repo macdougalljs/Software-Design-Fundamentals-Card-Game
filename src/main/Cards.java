@@ -59,8 +59,49 @@ public enum Suit {HEARTS, DIAMONDS, SPADES, CLUBS};
         this.v = v;
     }
     
-    @Override
+   
     
+    public int convertToInt() {
+        int temp;
+        
+        switch(this.getV()) {
+         case ONE : temp = 1; 
+             break;
+         case TWO : temp = 2;
+             break;
+         case THREE : temp = 3;
+             break;
+         case FOUR : temp = 4;
+             break;
+         case FIVE : temp = 5;
+             break;
+         case SIX : temp = 6;
+             break;
+         case SEVEN : temp = 7;
+             break;
+         case EIGHT : temp = 8;
+             break;
+         case NINE : temp = 9;
+             break;
+         case TEN : temp = 10;
+             break;
+         case KING : temp = 14;
+             break;
+         case QUEEN : temp = 13;
+             break;
+         case JACK : temp = 11;
+             break;
+         case PRINCESS : temp = 12;
+             break;
+         case ACE : temp = 15;
+             break;
+             
+     }
+        
+     return 0;
+    }
+    
+     @Override
     public String toString() {
      StringBuilder buildString = new StringBuilder();
     
