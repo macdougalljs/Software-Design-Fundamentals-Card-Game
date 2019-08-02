@@ -29,25 +29,12 @@ public class GamePlay {
 	return array;
 }
     
-    public static void main(String[]args) 
-    {
+    public static void main(String[]args) {
     Scanner inputObj = new Scanner(System.in);
   
     Deck ch = new Deck();
     ch.generate(); //calls method to generate 60 cards
-    
-    
-    ArrayList<Cards> deck1 = new ArrayList<>();
-    ArrayList<Cards> deck2 = new ArrayList<>();
-    
-    ArrayList<Cards> playerCollected1 = new ArrayList<>();
-    ArrayList<Cards> playerCollected2 = new ArrayList<>();
-    
-    
-          
-         
-   
-    
+ 
     char keepPlaying; 
     System.out.println("WAR GAME");
     System.out.println("Welcome to the War Game! Let's take the players names.");
@@ -66,14 +53,16 @@ public class GamePlay {
     
         // enter main game code here
         
-        RandomizedArray(ch.deck);
+        RandomizedArray(ch.deck);  // randomize the card deck
     
+        // assign the first half of the deck to player 1
         for (int x=0; x<ch.deck.length; x++){
-          deck1.add(ch.deck[x]);  
+          player1.playerDeck.add(ch.deck[x]);  
         }
   
+        // assign the second half of the deck to player 2
         for (int x=30; x<60; x++) {
-          deck2.add(ch.deck[x]);    
+          player2.playerDeck.add(ch.deck[x]);    
         }
 
         do {
@@ -90,7 +79,7 @@ public class GamePlay {
         // the higher player takes all the cards, if they're the same
         // LOOP THIS AGAIN! ----^
         
-        } while (!deck1.isEmpty() && !deck2.isEmpty());        
+        } while (!player1.playerDeck.isEmpty() && !player2.playerDeck.isEmpty());        
         
         System.out.print("Play another round? (Y/N): ");
         keepPlaying = inputObj.next().toUpperCase().charAt(0);

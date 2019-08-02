@@ -5,6 +5,8 @@
  */
 package main;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Jeremiah MacDougall
@@ -13,7 +15,10 @@ public class Player {
     private String playerName; 
     private int overallScore;
     private int roundScore;
-
+    
+    ArrayList<Cards> playerDeck = new ArrayList<>();
+    ArrayList<Cards> playerWinnings = new ArrayList<>();
+    
     public Player(String name) {
         this.playerName = name;
         this.roundScore = 0;
