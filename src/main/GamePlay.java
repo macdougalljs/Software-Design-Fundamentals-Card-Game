@@ -89,38 +89,52 @@ public class GamePlay {  // consider moving this into an object
             player2.playerWinnings.add(player1Card);
             System.out.println(player2.getPlayerName()+" takes this round!");
         }
-        else {
-        System.out.println("TIME FOR WAR!!");
-        
-        player1Battle.add(player1Card);
-        player2Battle.add(player2Card);  // add the current drawn cards to battle piles
-       
-        for (int x = 0; x < 3; x++) {
-            // draw 3 more cards and add them to the battle piles 
-            player1Card = player1.playerDeck.remove(player1.playerDeck.size()-1);
-            player2Card = player2.playerDeck.remove(player2.playerDeck.size()-1);
-            player1Battle.add(player1Card);
-            player1Battle.add(player2Card);
-                
-        }
-        // draw the top cards, is it a tie?
-       // if yes,  run the loop again, if no,  take all the cards and move them into
-       // the winning players pile
-        
-        }  
+        else 
+        {
+            boolean war = true;
+            do 
+            {
+                System.out.println("TIME FOR WAR!!");
 
-        
-//  it's a tie!  TIME FOR WAR!!!
-        // compare them
-        // who's is greater? they both get moved to that players collection
-        // are they equal?  then
-        
-        // ----------  START ANOTHER LOOP 
-        // and draw two more cards from each, but don't 
-        // show them;  draw a 3rd card from each and show them
-        // the higher player takes all the cards, if they're the same
-        // LOOP THIS AGAIN! ----^
-        
+                player1Battle.add(player1Card);
+                player2Battle.add(player2Card);  // add the current drawn cards to battle piles
+
+                do 
+                {
+                    for (int x = 0; x < 2; x++) {
+                        // draw 3 more cards and add them to the battle piles 
+                        player1Card = player1.playerDeck.remove(player1.playerDeck.size()-1);
+                        player2Card = player2.playerDeck.remove(player2.playerDeck.size()-1);
+                        player1Battle.add(player1Card);
+                        player1Battle.add(player2Card);
+                        System.out.println(player1.getPlayerName()+ " and "
+                            +player2.getPlayerName()+" both pull a hidden card.");
+                    }
+                    player1Card = player1.playerDeck.remove(player1.playerDeck.size()-1);
+                    player2Card = player2.playerDeck.remove(player2.playerDeck.size()-1);
+                    player1Battle.add(player1Card);
+                    player1Battle.add(player2Card);
+                    
+                    System.out.println(player1.getPlayerName()+" flips card: " + player1Card.toString());
+                    System.out.println(player2.getPlayerName()+" flips card: " + player2Card.toString());    
+     
+                } while (player1Card.convertToInt()== player2Card.convertToInt() 
+                        && (!player1.playerDeck.isEmpty() || !player2.playerDeck.isEmpty()) );
+                
+                if (player1Card.convertToInt() > player2Card.convertToInt()) {
+                    war = false;
+                System.out.println(player1.getPlayerName()+" WINS THE BATTLE!");
+                } else 
+                {
+                    System.out.println(player2.getPlayerName()+" WINS THE BATTLE!");
+                    war = false;
+                }
+                
+                // now, add all the winnings to their pile
+                            
+            } while (war);     
+        }  
+       
         System.out.println(player1.getPlayerName()+" winnings so far: "+player1.playerWinnings.size()+" Remaining Cards: "+player1.playerDeck.size());
         System.out.println(player2.getPlayerName()+" winnings so far: "+player2.playerWinnings.size()+" Remaining Cards: "+player2.playerDeck.size());
         
