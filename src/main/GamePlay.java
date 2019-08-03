@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package main;
 
 import java.util.Random;
@@ -15,14 +11,14 @@ import java.util.Scanner;
  */
 public class GamePlay {  // consider moving this into an object
     
-    public static Cards[] RandomizedArray(Cards[] array){
-	Random rgen = new Random();  // Random number generator			
+    public static Cards[] CreateRandomArray(Cards[] array){
+	Random randomNum = new Random();  // Random number generator			
  
 	for (int i=0; i<array.length; i++) {
-            int randomPosition = rgen.nextInt(array.length);
+            int rPos = randomNum.nextInt(array.length);
 	    Cards temp = array[i];
-	    array[i] = array[randomPosition];
-	    array[randomPosition] = temp;
+	    array[i] = array[rPos];
+	    array[rPos] = temp;
 	}
  
 	return array;
@@ -53,7 +49,7 @@ public class GamePlay {  // consider moving this into an object
     
         // enter main game code here
         
-        RandomizedArray(ch.getDeck());  // randomize the card deck
+        CreateRandomArray(ch.getDeck());  // randomize the card deck
     
         // assign the first half of the deck to player 1
         for (int x=0; x<ch.getDeck().length/2; x++){
@@ -64,19 +60,16 @@ public class GamePlay {  // consider moving this into an object
         for (int x=ch.getDeck().length/2+1; x<ch.getDeck().length; x++) {
           player2.playerDeck.add(ch.getDeck()[x]);    
         }
-
        
-        
         do {
         // this is where we'll do the comparisons and move the cards around
         // pull cards from player 1 and 2
-        System.out.println("check1");
+       
         player1Card = player1.playerDeck.remove(player1.playerDeck.size()-1);
         player2Card = player2.playerDeck.remove(player2.playerDeck.size()-1);
-System.out.println("check2");
-        System.out.println(player1.getPlayerName()+" plays card: " + player1Card.toString());
-        System.out.println(player2.getPlayerName()+" plays card: " + player2Card.toString());
-        
+
+        System.out.println(player1.getPlayerName()+" flips card: " + player1Card.toString());
+        System.out.println(player2.getPlayerName()+" flips card: " + player2Card.toString());    
         
         if (player1Card.convertToInt() > player2Card.convertToInt()) 
         {
@@ -111,7 +104,23 @@ System.out.println("check2");
         
         } while (player1.playerDeck.size() > 0 && player2.playerDeck.size() > 0);        
        // String winner = player1.playerWinnings.size() > player1.playerWinnings.size() ? winner = player1.getPlayerName() : winner = player2.getPlayerName();
-       
+        if (player1.playerWinnings.size() > player2.playerWinnings.size()) 
+       {
+           System.out.println("Congratulations "+player1.getPlayerName()+", you win!");
+           int score = player1.getOverallScore();
+           score++;
+           player1.setOverallScore(score);
+       }
+        else
+        {
+           System.out.println("Congratulations "+player2.getPlayerName()+", you win!");
+           int score = player2.getOverallScore();
+           score++;
+           player2.setOverallScore(score);
+        }
+        System.out.println("Overall Scores:");
+        System.out.println(player1.getPlayerName()+" "+player1.getOverallScore());
+        System.out.println(player2.getPlayerName()+" "+player2.getOverallScore());
         System.out.print("Play another round? (Y/N): ");
         keepPlaying = inputObj.next().toUpperCase().charAt(0);
        
