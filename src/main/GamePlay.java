@@ -12,12 +12,12 @@ import java.util.Scanner;
 public class GamePlay {  // consider moving this into an object
     
     public static Cards[] CreateRandomArray(Cards[] array){
-	Random randomNum = new Random();  // Random number generator			
+	Random randomNum = new Random();  		
  
-	for (int i=0; i<array.length; i++) {
+	for (int x=0; x<array.length; x++) {
             int rPos = randomNum.nextInt(array.length);
-	    Cards temp = array[i];
-	    array[i] = array[rPos];
+	    Cards temp = array[x];
+	    array[x] = array[rPos];
 	    array[rPos] = temp;
 	}
  
@@ -37,10 +37,10 @@ public class GamePlay {  // consider moving this into an object
     
     // take the players names, and initialize the new player objects
     
-    System.out.print("Enter Player 1: ");
+    System.out.print("Enter Player #1 Name: ");
     Player player1 = new Player(inputObj.next());
     
-    System.out.print("Enter Player 2: ");
+    System.out.print("Enter Player #2 Name: ");
     Player player2 = new Player(inputObj.next());
            
     // this is the primary game loop; the game will run until the user quits
