@@ -1,6 +1,7 @@
 
 package main;
 
+import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -31,6 +32,8 @@ public class GamePlay {  // consider moving this into an object
     ch.generate(); //calls method to generate 60 cards
     Cards player1Card;
     Cards player2Card;
+    ArrayList<Cards> player1Battle = new ArrayList<>();
+    ArrayList<Cards> player2Battle = new ArrayList<>();
     char keepPlaying; 
     System.out.println("WAR GAME");
     System.out.println("Welcome to the War Game! Let's take the players names.");
@@ -88,7 +91,26 @@ public class GamePlay {  // consider moving this into an object
         }
         else {
         System.out.println("TIME FOR WAR!!");
-        }  //  it's a tie!  TIME FOR WAR!!!
+        
+        player1Battle.add(player1Card);
+        player2Battle.add(player2Card);  // add the current drawn cards to battle piles
+       
+        for (int x = 0; x < 3; x++) {
+            // draw 3 more cards and add them to the battle piles 
+            player1Card = player1.playerDeck.remove(player1.playerDeck.size()-1);
+            player2Card = player2.playerDeck.remove(player2.playerDeck.size()-1);
+            player1Battle.add(player1Card);
+            player1Battle.add(player2Card);
+                
+        }
+        // draw the top cards, is it a tie?
+       // if yes,  run the loop again, if no,  take all the cards and move them into
+       // the winning players pile
+        
+        }  
+
+        
+//  it's a tie!  TIME FOR WAR!!!
         // compare them
         // who's is greater? they both get moved to that players collection
         // are they equal?  then
