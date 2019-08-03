@@ -57,10 +57,13 @@ public class GamePlay {  // consider moving this into an object
         }
   
         // assign the second half of the deck to player 2
-        for (int x=ch.getDeck().length/2+1; x<ch.getDeck().length; x++) {
+        for (int x=ch.getDeck().length/2; x<ch.getDeck().length; x++) {
           player2.playerDeck.add(ch.getDeck()[x]);    
         }
-       
+               System.out.println("Stage1"+player1.getPlayerName()+" winnings so far: "+player1.playerWinnings.size()+" Remaining Cards: "+player1.playerDeck.size());
+        System.out.println(player2.getPlayerName()+" winnings so far: "+player2.playerWinnings.size()+" Remaining Cards: "+player2.playerDeck.size());
+  
+        
         do {
         // this is where we'll do the comparisons and move the cards around
         // pull cards from player 1 and 2
