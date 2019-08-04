@@ -41,7 +41,7 @@ public class CardsTest {
      * Test of getS method, of class Cards.
      */
     @Test
-    public void testGetS() {
+    public void testGetgood() {
         System.out.println("getS");
         Cards instance = new Cards();
         Cards.Suit expResult = null;
@@ -51,6 +51,17 @@ public class CardsTest {
         fail("The test case is a prototype.");
     }
 
+     public void testGetS() {
+        System.out.println("getS");
+        Cards instance = new Cards();
+        Cards.Suit expResult = null;
+        Cards.Suit result = instance.getS();
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    
     /**
      * Test of setS method, of class Cards.
      */

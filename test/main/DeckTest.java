@@ -38,6 +38,19 @@ public class DeckTest {
     }
 
     /**
+     * Test of setDeck method, of class Deck.
+     */
+    @Test
+    public void testSetDeck() {
+        System.out.println("setDeck");
+        Cards[] deck = null;
+        Deck instance = new Deck();
+        instance.setDeck(deck);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
      * Test of generate method, of class Deck.
      */
     @Test
@@ -86,19 +99,6 @@ public class DeckTest {
         Cards[] expResult = null;
         Cards[] result = instance.getDeck();
         assertArrayEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of setDeck method, of class Deck.
-     */
-    @Test
-    public void testSetDeck() {
-        System.out.println("setDeck");
-        Cards[] deck = null;
-        Deck instance = new Deck();
-        instance.setDeck(deck);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
