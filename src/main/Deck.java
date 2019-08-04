@@ -6,6 +6,13 @@ package main;
  * @author Jeremiah MacDougall
  */
 public class Deck {
+
+    /**
+     * @param deck the deck to set
+     */
+    public void setDeck(Cards[] deck) {
+        this.deck = deck;
+    }
     private int size=60;
     private Cards [] deck = new Cards[size]; // Array of object created
     
@@ -47,11 +54,6 @@ public class Deck {
         return deck;
     }
 
-    /**
-     * @param deck the deck to set
-     */
-    public void setDeck(Cards[] deck) {
-        this.deck = deck;
-    }
+  
     
 }

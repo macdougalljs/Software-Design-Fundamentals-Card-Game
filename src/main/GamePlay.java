@@ -56,37 +56,37 @@ public class GamePlay {  // consider moving this into an object
     
         // assign the first half of the deck to player 1
         for (int x=0; x<ch.getDeck().length/2; x++){
-          player1.playerDeck.add(ch.getDeck()[x]);  
+          player1.getPlayerDeck().add(ch.getDeck()[x]);  
         }
   
         // assign the second half of the deck to player 2
         for (int x=ch.getDeck().length/2; x<ch.getDeck().length; x++) {
-          player2.playerDeck.add(ch.getDeck()[x]);    
+          player2.getPlayerDeck().add(ch.getDeck()[x]);    
         }
-               System.out.println("Stage1"+player1.getPlayerName()+" winnings so far: "+player1.playerWinnings.size()+" Remaining Cards: "+player1.playerDeck.size());
-        System.out.println(player2.getPlayerName()+" winnings so far: "+player2.playerWinnings.size()+" Remaining Cards: "+player2.playerDeck.size());
+      //  System.out.println(player1.getPlayerName()+" winnings so far: "+player1.getPlayerWinnings().size()+" Remaining Cards: "+player1.getPlayerDeck().size());
+      //  System.out.println(player2.getPlayerName()+" winnings so far: "+player2.getPlayerWinnings().size()+" Remaining Cards: "+player2.getPlayerDeck().size());
   
         
         do {
         // this is where we'll do the comparisons and move the cards around
         // pull cards from player 1 and 2
        
-        player1Card = player1.playerDeck.remove(player1.playerDeck.size()-1);
-        player2Card = player2.playerDeck.remove(player2.playerDeck.size()-1);
+        player1Card = player1.getPlayerDeck().remove(player1.getPlayerDeck().size()-1);
+        player2Card = player2.getPlayerDeck().remove(player2.getPlayerDeck().size()-1);
 
         System.out.println(player1.getPlayerName()+" flips card: " + player1Card.toString());
         System.out.println(player2.getPlayerName()+" flips card: " + player2Card.toString());    
         
         if (player1Card.convertToInt() > player2Card.convertToInt()) 
         {
-            player1.playerWinnings.add(player2Card);
-            player1.playerWinnings.add(player1Card);
+            player1.getPlayerWinnings().add(player2Card);
+            player1.getPlayerWinnings().add(player1Card);
             System.out.println(player1.getPlayerName()+" takes this round!");
         }
         else if (player1Card.convertToInt() < player2Card.convertToInt()) 
         {
-            player2.playerWinnings.add(player1Card);
-            player2.playerWinnings.add(player1Card);
+            player2.getPlayerWinnings().add(player1Card);
+            player2.getPlayerWinnings().add(player1Card);
             System.out.println(player2.getPlayerName()+" takes this round!");
         }
         else 
@@ -103,30 +103,31 @@ public class GamePlay {  // consider moving this into an object
                 {
                     for (int x = 0; x < 2; x++) {
                         // draw 3 more cards and add them to the battle piles 
-                        player1Card = player1.playerDeck.remove(player1.playerDeck.size()-1);
-                        player2Card = player2.playerDeck.remove(player2.playerDeck.size()-1);
+                        player1Card = player1.getPlayerDeck().remove(player1.getPlayerDeck().size()-1);
+                        player2Card = player2.getPlayerDeck().remove(player2.getPlayerDeck().size()-1);
                         player1Battle.add(player1Card);
                         player1Battle.add(player2Card);
                         System.out.println(player1.getPlayerName()+ " and "
                             +player2.getPlayerName()+" both pull a hidden card.");
                     }
-                    player1Card = player1.playerDeck.remove(player1.playerDeck.size()-1);
-                    player2Card = player2.playerDeck.remove(player2.playerDeck.size()-1);
-                    player1Battle.add(player1Card);
-                    player1Battle.add(player2Card);
+                    player1Card = player1.getPlayerDeck().remove(player1.getPlayerDeck().size()-1);
+                    player2Card = player2.getPlayerDeck().remove(player2.getPlayerDeck().size()-1);
+                    player1Battle.add(player1Card);  // add card to battle pile 1
+                    player1Battle.add(player2Card); // add card to battle pile 2
                     
                     System.out.println(player1.getPlayerName()+" flips card: " + player1Card.toString());
                     System.out.println(player2.getPlayerName()+" flips card: " + player2Card.toString());    
      
                 } while (player1Card.convertToInt()== player2Card.convertToInt() 
-                        && (!player1.playerDeck.isEmpty() || !player2.playerDeck.isEmpty()) );
+                        && (player1.getDeckSize() > 0 || player2.getDeckSize() > 0) );
+                
                 
                 if (player1Card.convertToInt() > player2Card.convertToInt()) {
                     war = false;
-                System.out.println(player1.getPlayerName()+" WINS THE BATTLE!");
+                System.out.println(player1.getPlayerName().toUpperCase()+" WINS THE BATTLE!");
                 } else 
                 {
-                    System.out.println(player2.getPlayerName()+" WINS THE BATTLE!");
+                    System.out.println(player2.getPlayerName().toUpperCase()+" WINS THE BATTLE!");
                     war = false;
                 }
                 
@@ -135,15 +136,15 @@ public class GamePlay {  // consider moving this into an object
             } while (war);     
         }  
        
-        System.out.println(player1.getPlayerName()+" winnings so far: "+player1.playerWinnings.size()+" Remaining Cards: "+player1.playerDeck.size());
-        System.out.println(player2.getPlayerName()+" winnings so far: "+player2.playerWinnings.size()+" Remaining Cards: "+player2.playerDeck.size());
+        // System.out.println(player1.getPlayerName()+" winnings so far: "+player1.getPlayerWinnings().size()+" Remaining Cards: "+player1.getPlayerDeck().size());
+        // System.out.println(player2.getPlayerName()+" winnings so far: "+player2.getPlayerWinnings().size()+" Remaining Cards: "+player2.getPlayerDeck().size());
         
         System.out.print("Type 'Y' and press enter to continue. ");
         String input = inputObj.next(); 
         
-        } while (player1.playerDeck.size() > 0 && player2.playerDeck.size() > 0);        
+        } while (player1.getPlayerDeck().size() > 0 && player2.getPlayerDeck().size() > 0);        
        // String winner = player1.playerWinnings.size() > player1.playerWinnings.size() ? winner = player1.getPlayerName() : winner = player2.getPlayerName();
-        if (player1.playerWinnings.size() > player2.playerWinnings.size()) 
+        if (player1.getPlayerWinnings().size() > player2.getPlayerWinnings().size()) 
        {
            System.out.println("Congratulations "+player1.getPlayerName()+", you win!");
            int score = player1.getOverallScore();

@@ -12,12 +12,40 @@ import java.util.ArrayList;
  * @author Jeremiah MacDougall
  */
 public class Player {
+
+    /**
+     * @return the playerDeck
+     */
+    public ArrayList<Cards> getPlayerDeck() {
+        return playerDeck;
+    }
+
+    /**
+     * @param playerDeck the playerDeck to set
+     */
+    public void setPlayerDeck(ArrayList<Cards> playerDeck) {
+        this.playerDeck = playerDeck;
+    }
+
+    /**
+     * @return the playerWinnings
+     */
+    public ArrayList<Cards> getPlayerWinnings() {
+        return playerWinnings;
+    }
+
+    /**
+     * @param playerWinnings the playerWinnings to set
+     */
+    public void setPlayerWinnings(ArrayList<Cards> playerWinnings) {
+        this.playerWinnings = playerWinnings;
+    }
     private String playerName; 
     private int overallScore;
     private int roundScore;
     
-    ArrayList<Cards> playerDeck = new ArrayList<>();
-    ArrayList<Cards> playerWinnings = new ArrayList<>();
+    private ArrayList<Cards> playerDeck = new ArrayList<>();
+    private ArrayList<Cards> playerWinnings = new ArrayList<>();
     
     public Player(String name) {
         this.playerName = name;
@@ -65,6 +93,10 @@ public class Player {
      */
     public void setRoundScore(int roundScore) {
         this.roundScore = roundScore;
+    }
+    
+    public int getDeckSize() {
+    return this.playerDeck.size();
     }
     
 }
