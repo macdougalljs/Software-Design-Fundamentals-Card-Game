@@ -168,8 +168,7 @@ public class GamePlay {  // consider moving this into an object
            score++;
            player2.setOverallScore(score);
         }
-        System.out.println(player1.getPlayerName()+" cards collected: "+player1.getPlayerWinnings().size());
-        System.out.println(player2.getPlayerName()+" cards collected: "+player2.getPlayerWinnings().size());
+       
         System.out.println();
         System.out.println("Overall Scores:");
         System.out.println(player1.getPlayerName()+" "+player1.getOverallScore());
