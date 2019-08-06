@@ -133,24 +133,36 @@ public class GamePlay {  // consider moving this into an object
                 if (player1Card.convertToInt() > player2Card.convertToInt()) {
                     war = false;
                 System.out.println(player1.getPlayerName().toUpperCase()+" WINS THE BATTLE!");
+                    for (int x=0; x < player2Battle.size(); x++) {
+                        // add code to move cards from battle list to player card collection
+                         player1.getPlayerWinnings().add(player2Battle.get(x));
+                    }
+                
                 } else 
                 {
                     System.out.println(player2.getPlayerName().toUpperCase()+" WINS THE BATTLE!");
                     war = false;
+                     for (int x=0; x < player1Battle.size(); x++) {
+                        player2.getPlayerWinnings().add(player1Battle.get(x));
+// add code to move cards from battle list to player card collection
+                        
+                    }
                 }
                 
-                // now, add all the winnings to their pile
-                            
+  
+          //  System.out.println(player2.getPlayerName()+" takes this round!");
+                
+                
             } while (war);     
         }  
         else 
             System.out.println("A player is out of cards!");
        
-        // System.out.println(player1.getPlayerName()+" winnings so far: "+player1.getPlayerWinnings().size()+" Remaining Cards: "+player1.getPlayerDeck().size());
-        // System.out.println(player2.getPlayerName()+" winnings so far: "+player2.getPlayerWinnings().size()+" Remaining Cards: "+player2.getPlayerDeck().size());
+        System.out.println(player1.getPlayerName()+" winnings so far: "+player1.getPlayerWinnings().size()+" Remaining Cards: "+player1.getPlayerDeck().size());
+        System.out.println(player2.getPlayerName()+" winnings so far: "+player2.getPlayerWinnings().size()+" Remaining Cards: "+player2.getPlayerDeck().size());
         
-        System.out.print("Type 'Y' and press enter to continue. ");
-        String input = inputObj.next(); 
+     //   System.out.print("Type 'Y' and press enter to continue. ");
+     //   String input = inputObj.next();  removed the pause
         
         } while (player1.getPlayerDeck().size() > 0 && player2.getPlayerDeck().size() > 0);        
 
