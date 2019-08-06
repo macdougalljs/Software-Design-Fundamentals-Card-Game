@@ -56,7 +56,8 @@ public class GamePlayTest {
         System.out.println("CreateRandomArray");
         Cards c = new Cards();
         Cards d = new Cards();
-        Cards[] array = null;
+        Cards e = new Cards();
+        Cards[] array = {c, d};
         Cards[] expResult = null;
         Cards[] result = GamePlay.CreateRandomArray(array);
         assertArrayEquals(expResult, result);
@@ -64,7 +65,19 @@ public class GamePlayTest {
         fail("The test case is a prototype.");
     }
     
-    
+    @Test
+    public void testCreateRandomArrayBoundary() {
+        System.out.println("CreateRandomArray");
+        Cards c = new Cards();
+        Cards d = new Cards();
+        Cards e = new Cards();
+        Cards[] array = {c, d, e};
+        Cards[] expResult = null; 
+        Cards[] result = GamePlay.CreateRandomArray(array);
+        assertArrayEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        // fail("The test case is a prototype.");
+    }
     
     /**
      * Test of main method, of class GamePlay.
