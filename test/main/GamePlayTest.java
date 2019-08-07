@@ -3,6 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
+// add number of cards for each player, at least one method for test cases for proffessor
+
 package main;
 
 import org.junit.After;

@@ -57,7 +57,7 @@ public enum Suit {HEARTS, DIAMONDS, SPADES, CLUBS};
     
    
     
-    public int convertToInt() {
+    public int convertToInt() {  // converts the Value of the card to an integer value
         int temp = 0;
         
         switch(this.getV()) {

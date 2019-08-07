@@ -106,7 +106,26 @@ public class CardsTest {
      * Test of convertToInt method, of class Cards.
      */
     @Test
-    public void testConvertToInt() {
+    public void testConvertToIntGood() {
+        System.out.println("convertToInt");
+        Cards instance = new Cards();
+        int expResult = 0;
+        int result = instance.convertToInt();
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+public void testConvertToIntBad() {
+        System.out.println("convertToInt");
+        Cards instance = new Cards();
+        int expResult = 0;
+        int result = instance.convertToInt();
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+    
+public void testConvertToIntBoundary() {
         System.out.println("convertToInt");
         Cards instance = new Cards();
         int expResult = 0;
@@ -116,6 +135,7 @@ public class CardsTest {
         fail("The test case is a prototype.");
     }
 
+    
     /**
      * Test of toString method, of class Cards.
      */

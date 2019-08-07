@@ -103,7 +103,7 @@ public class GamePlay {  // consider moving this into an object
                 do 
                 {
                     for (int x = 0; x < 2; x++) {
-                        // draw 3 more cards and add them to the battle piles 
+                        // draw 2 more cards and add them to the battle piles 
                         // if the deck is almost used up, only draw enough cards 
                         // so that there is at least one card left to show who wins
                         // the battle
